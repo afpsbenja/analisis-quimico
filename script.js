@@ -72,30 +72,30 @@ document.getElementById("btn-reveal").addEventListener("click", function() {
     finalStage.scrollIntoView({ behavior: "smooth" });
 });
 
-document.getElementById("btn-yes").addEventListener("click", function() {
-    // 1. Muestra el mensaje fijo de abajo
+// SOLO EL BOTÓN "SÍ" ABRE EL POP-UP
+document.getElementById("btn-yes").addEventListener("click", function(e) {
+    e.stopPropagation();
     document.getElementById("response-msg").classList.remove("hidden");
     this.innerText = "¡ENLACE CONFIRMADO! 💍";
-    
-    // 2. Dispara el Pop-up flotante en pantalla
     document.getElementById("celebration-modal").classList.remove("hidden");
 });
 
-// Botón para cerrar el Pop-up y volver a ver la página
-document.getElementById("close-modal").addEventListener("click", function() {
+// BOTÓN PARA CERRAR EL POP-UP
+document.getElementById("close-modal").addEventListener("click", function(e) {
+    e.stopPropagation();
     document.getElementById("celebration-modal").classList.add("hidden");
 });
 
-
+// EL BOTÓN "NO" SOLO SE PONE GRIS Y CAMBIA EL TEXTO
 const btnNo = document.getElementById("btn-no");
 
-function bloquearBotonNo() {
-    btnNo.classList.add("disabled-btn");
-    btnNo.innerText = "Excepción no controlada: Solo puedes decir SÍ";
-}
+btnNo.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.classList.add("disabled-btn");
+    this.innerText = "Excepción no controlada: Solo puedes decir SÍ";
+});
 
-btnNo.addEventListener("click", bloquearBotonNo);
-btnNo.addEventListener("mouseover", bloquearBotonNo);
 
 
 
