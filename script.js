@@ -1,5 +1,5 @@
 // ⚡ MODO PRUEBA: Ponlo en 'true' para probar rápido, y en 'false' para el 24 de noviembre
-const MODO_PRUEBA = false; 
+const MODO_PRUEBA = true; 
 
 const velocidadTipeo = MODO_PRUEBA ? 1 : 55;
 const pausaLinea = MODO_PRUEBA ? 10 : 600;
@@ -89,10 +89,24 @@ document.getElementById("btn-yes").addEventListener("click", function(e) {
 });
 
 // BOTÓN PARA CERRAR EL POP-UP
-document.getElementById("close-modal").addEventListener("click", function(e) {
+document.getElementById("btn-yes").addEventListener("click", function(e) {
     e.stopPropagation();
-    document.getElementById("celebration-modal").classList.add("hidden");
+    document.getElementById("response-msg").classList.remove("hidden");
+    this.innerText = "¡ENLACE CONFIRMADO! 💍";
+    document.getElementById("celebration-modal").classList.remove("hidden");
+
+    // 🎉 EXPLOSIÓN DE CONFETI CON SUS COLORES
+    if (typeof confetti === "function") {
+        confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#ff66b2', '#00bcff', '#ffffff'],
+            zIndex: 10000 // Para que pase por encima del Pop-up
+        });
+    }
 });
+
 
 // EL BOTÓN "NO" SOLO SE PONE GRIS Y CAMBIA EL TEXTO
 const btnNo = document.getElementById("btn-no");
