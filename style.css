@@ -302,20 +302,21 @@ body {
     display: inline-block;
     width: 100%;
     padding: 15px 20px;
-    background: linear-gradient(45deg, #ff0055, #ff66b2);
+    background-color: #e64c4c; /* Rojo YouTube suavizado */
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(230, 76, 76, 0.3);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .youtube-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 20px rgba(255, 102, 178, 0.5);
+    background-color: #ff6666;
+    transform: scale(1.02);
 }
+
 
 .media-hint {
     font-size: 11px;
