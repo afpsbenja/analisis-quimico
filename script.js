@@ -1,5 +1,5 @@
 // ⚡ MODO PRUEBA: Ponlo en 'true' para probar rápido, y en 'false' para el 24 de noviembre
-const MODO_PRUEBA = true; 
+const MODO_PRUEBA = false; 
 
 const velocidadTipeo = MODO_PRUEBA ? 1 : 55;
 const pausaLinea = MODO_PRUEBA ? 10 : 600;
