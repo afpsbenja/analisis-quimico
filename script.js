@@ -18,18 +18,33 @@ function escribirConsola() {
         if (caracterActual < lineasConsola[lineaActual].length) {
             outputElement.innerHTML += lineasConsola[lineaActual].charAt(caracterActual);
             caracterActual++;
-            setTimeout(escribirConsola, 55); // Velocidad más pausada por letra
+            setTimeout(escribirConsola, 55);
         } else {
             outputElement.innerHTML += "<br>";
             lineaActual++;
             caracterActual = 0;
-            setTimeout(escribirConsola, 600); // Pausa más larga entre líneas
+            setTimeout(escribirConsola, 600);
         }
     } else {
-        // Cuando termina de escribir todo, muestra las tarjetas principales
+        // 1. Aparece primero el contador de tiempo activo
         mainContent.classList.remove("hidden");
+
+        // 2. 3.5 segundos después aparece el Informe del Vaso Precipitado
+        setTimeout(() => {
+            const labCard = document.getElementById("lab-card-box");
+            labCard.classList.remove("hidden");
+            labCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 3500);
+
+        // 3. Otros 3.5 segundos después (7s en total) aparece el botón del video
+        setTimeout(() => {
+            const btnReveal = document.getElementById("btn-reveal");
+            btnReveal.classList.remove("hidden");
+            btnReveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 7000);
     }
 }
+
 
 // Iniciar la animación al cargar la página
 window.onload = escribirConsola;
