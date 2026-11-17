@@ -1,4 +1,3 @@
-// 1. CONFIGURACIÓN DE TEXTOS DE CONSOLA (Efecto Máquina de Escribir)
 const lineasConsola = [
     "> Iniciando protocolo de análisis molecular...",
     "> Cargando historial desde: 10 de Mayo [OK]",
@@ -26,31 +25,28 @@ function escribirConsola() {
             setTimeout(escribirConsola, 600);
         }
     } else {
-        // 1. Aparece primero el contador de tiempo activo
         mainContent.classList.remove("hidden");
 
-        // 2. 3.5 segundos después aparece el Informe del Vaso Precipitado
         setTimeout(() => {
             const labCard = document.getElementById("lab-card-box");
-            labCard.classList.remove("hidden");
-            labCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            if (labCard) {
+                labCard.classList.remove("hidden");
+                labCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
         }, 3500);
 
-        // 3. Otros 3.5 segundos después (7s en total) aparece el botón del video
         setTimeout(() => {
             const btnReveal = document.getElementById("btn-reveal");
-            btnReveal.classList.remove("hidden");
-            btnReveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            if (btnReveal) {
+                btnReveal.classList.remove("hidden");
+                btnReveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
         }, 7000);
     }
 }
 
-
-// Iniciar la animación al cargar la página
 window.onload = escribirConsola;
 
-// 2. CONTADOR EN TIEMPO REAL DESDE EL 10 DE MAYO DE 2026
-// Nota: En JS los meses empiezan en 0 (Enero=0, Mayo=4)
 const fechaConocidos = new Date(2026, 4, 10, 0, 0, 0);
 
 function actualizarReloj() {
@@ -69,7 +65,6 @@ function actualizarReloj() {
 setInterval(actualizarReloj, 1000);
 actualizarReloj();
 
-// 3. EVENTOS DE BOTONES
 document.getElementById("btn-reveal").addEventListener("click", function() {
     this.style.display = "none";
     const finalStage = document.getElementById("final-stage");
@@ -79,10 +74,9 @@ document.getElementById("btn-reveal").addEventListener("click", function() {
 
 document.getElementById("btn-yes").addEventListener("click", function() {
     document.getElementById("response-msg").classList.remove("hidden");
-    this.innerText = "¡ENLACE CONFIRMADO!";
+    this.innerText = "¡ENLACE CONFIRMADO! 💍";
 });
 
-// Botón "No" esquivo por si intenta apretarlo de broma
 const btnNo = document.getElementById("btn-no");
 
 function bloquearBotonNo() {
@@ -92,5 +86,6 @@ function bloquearBotonNo() {
 
 btnNo.addEventListener("click", bloquearBotonNo);
 btnNo.addEventListener("mouseover", bloquearBotonNo);
+
 
 
