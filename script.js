@@ -69,6 +69,12 @@ document.getElementById("btn-yes").addEventListener("click", function() {
 
 // Botón "No" esquivo por si intenta apretarlo de broma
 const btnNo = document.getElementById("btn-no");
-btnNo.addEventListener("mouseover", function() {
-    this.innerText = "Excepción no controlada: Solo puedes decir SÍ";
+
+function bloquearBotonNo() {
+    btnNo.classList.add("disabled-btn");
+    btnNo.innerText = "Excepción no controlada: Solo puedes decir SÍ";
+}
+
+btnNo.addEventListener("click", bloquearBotonNo);
+btnNo.addEventListener("mouseover", bloquearBotonNo);
 });
