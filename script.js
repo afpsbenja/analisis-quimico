@@ -1,3 +1,11 @@
+// ⚡ MODO PRUEBA: Ponlo en 'true' para probar rápido, y en 'false' para el 24 de noviembre
+const MODO_PRUEBA = true; 
+
+const velocidadTipeo = MODO_PRUEBA ? 1 : 55;
+const pausaLinea = MODO_PRUEBA ? 10 : 600;
+const esperaTarjeta = MODO_PRUEBA ? 100 : 3500;
+const esperaBoton = MODO_PRUEBA ? 200 : 7000;
+
 const lineasConsola = [
     "> Iniciando protocolo de análisis molecular...",
     "> Cargando historial desde: 10 de Mayo [OK]",
@@ -17,12 +25,12 @@ function escribirConsola() {
         if (caracterActual < lineasConsola[lineaActual].length) {
             outputElement.innerHTML += lineasConsola[lineaActual].charAt(caracterActual);
             caracterActual++;
-            setTimeout(escribirConsola, 55);
+            setTimeout(escribirConsola, velocidadTipeo); // Usa la variable
         } else {
             outputElement.innerHTML += "<br>";
             lineaActual++;
             caracterActual = 0;
-            setTimeout(escribirConsola, 600);
+            setTimeout(escribirConsola, pausaLinea); // Usa la variable
         }
     } else {
         mainContent.classList.remove("hidden");
@@ -33,7 +41,7 @@ function escribirConsola() {
                 labCard.classList.remove("hidden");
                 labCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
             }
-        }, 3500);
+        }, esperaTarjeta); // Usa la variable
 
         setTimeout(() => {
             const btnReveal = document.getElementById("btn-reveal");
@@ -41,7 +49,7 @@ function escribirConsola() {
                 btnReveal.classList.remove("hidden");
                 btnReveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
             }
-        }, 7000);
+        }, esperaBoton); // Usa la variable
     }
 }
 
