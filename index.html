@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab_Compatibilidad_v1.0.exe</title>
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
     <div class="terminal">
@@ -29,8 +29,8 @@
                     <div id="timer" class="timer-display">00d 00h 00m 00s</div>
                 </div>
 
-                               <!-- Ficha técnica química-informática -->
-                <div id="lab-card-box" class="card lab-card hidden">
+                <!-- Ficha técnica química-informática -->
+                <div id="lab-card-box" class="card lab-card hidden fade-in">
                     <h2>🧪 INFORME DE SOLUCIÓN 🧪<br>VASO PRECIPITADO<br>250ML de Amor Verdadero</h2>
                     <ul class="specs-list">
                         <li><strong>Reactivo A (14/10):</strong> Ing. Civil Informática</li>
@@ -41,10 +41,9 @@
                 </div>
 
                 <!-- Botón de acción (oculto al inicio) -->
-                <button id="btn-reveal" class="cyber-btn hidden">
+                <button id="btn-reveal" class="cyber-btn hidden fade-in">
                     [ EJECUTAR BITÁCORA DE RECUERDOS ]
                 </button>
-
 
                 <!-- Contenedor final oculto (Video + Propuesta) -->
                 <div id="final-stage" class="hidden fade-in">
@@ -73,20 +72,20 @@
         </div>
     </div>
 
-    <script src="script.js?v=4"></script>
-  
-
+    <!-- POP-UP FLOTANTE DE CELEBRACIÓN -->
+    <div id="celebration-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <span class="modal-emoji">💍</span>
             <h2 class="modal-title">¡ENLACE COVALENTE CONFIRMADO!</h2>
             <p class="modal-text">
                 <strong>Reacción Exitosa al 100%.</strong><br><br>
                 Desde el 10 de mayo hasta este 24 de noviembre, eres mi mejor resultado.<br>
-                Te amaré la vida entera. ❤️ 
-                <button id="close-modal" class="yes-btn">Cerrar</button>
+                Te amaré la vida entera. ❤️
             </p>
             <button id="close-modal" class="yes-btn">Cerrar</button>
         </div>
     </div>
+
+    <script src="script.js?v=6"></script>
 </body>
 </html>
