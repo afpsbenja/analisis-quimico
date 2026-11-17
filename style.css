@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #090c10;
+    color: #c9d1d9;
+    font-family: 'Consolas', 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+.terminal {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 620px;
+    box-shadow: 0 10px 30px rgba(0, 188, 255, 0.15);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: #161b22;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-title {
+    font-size: 12px;
+    color: #8b949e;
+    margin-left: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.terminal-body {
+    padding: 20px;
+}
+
+.console-log {
+    color: #3fb950;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 90px;
+}
+
+.card {
+    background-color: #161b22;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 18px;
+}
+
+.counter-card {
+    border-left: 4px solid #00bcff;
+    text-align: center;
+}
+
+.badge {
+    font-size: 11px;
+    color: #00bcff;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.timer-display {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.lab-card {
+    border: 1px solid #00bcff;
+    background: rgba(0, 188, 255, 0.04);
+}
+
+.lab-card h2 {
+    color: #00bcff;
+    font-size: 16px;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed #30363d;
+    padding-bottom: 8px;
+}
+
+.specs-list {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.specs-list strong {
+    color: #ff66b2; /* Color lirio rosado */
+}
+
+.cyber-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #238636;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cyber-btn:hover {
+    background-color: #2ea043;
+    box-shadow: 0 0 15px rgba(46, 160, 67, 0.4);
+}
+
+.media-wrapper {
+    margin: 20px 0;
+    border: 1px dashed #8b949e;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background-color: #090c10;
+}
+
+.placeholder-note {
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.proposal-box {
+    text-align: center;
+    padding: 20px 10px;
+    border-top: 1px solid #30363d;
+}
+
+.sub-proposal {
+    font-size: 13px;
+    color: #00bcff;
+    margin-bottom: 8px;
+}
+
+.big-question {
+    color: #ff66b2;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 102, 178, 0.4);
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.yes-btn {
+    background-color: #ff66b2;
+    color: #090c10;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.yes-btn:hover {
+    transform: scale(1.05);
+}
+
+.no-btn {
+    background-color: #21262d;
+    color: #8b949e;
+    border: 1px solid #30363d;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: not-allowed;
+}
+
+.success-banner {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 102, 178, 0.15);
+    border: 1px solid #ff66b2;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
