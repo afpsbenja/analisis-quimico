@@ -73,9 +73,19 @@ document.getElementById("btn-reveal").addEventListener("click", function() {
 });
 
 document.getElementById("btn-yes").addEventListener("click", function() {
+    // 1. Muestra el mensaje fijo de abajo
     document.getElementById("response-msg").classList.remove("hidden");
     this.innerText = "¡ENLACE CONFIRMADO! 💍";
+    
+    // 2. Dispara el Pop-up flotante en pantalla
+    document.getElementById("celebration-modal").classList.remove("hidden");
 });
+
+// Botón para cerrar el Pop-up y volver a ver la página
+document.getElementById("close-modal").addEventListener("click", function() {
+    document.getElementById("celebration-modal").classList.add("hidden");
+});
+
 
 const btnNo = document.getElementById("btn-no");
 
