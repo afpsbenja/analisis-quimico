@@ -170,7 +170,7 @@ body {
 
 .btn-group {
     display: flex;
-    gap: 10px;
+    gap: 18px;
     justify-content: center;
     flex-wrap: wrap;
 }
