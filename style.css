@@ -289,4 +289,35 @@ body {
     from { opacity: 0; transform: scale(0.75); }
     to { opacity: 1; transform: scale(1); }
 }
+.media-subtitle {
+    font-size: 12px;
+    color: #00bcff;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.youtube-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(45deg, #ff0055, #ff66b2);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.youtube-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 102, 178, 0.5);
+}
+
+.media-hint {
+    font-size: 11px;
+    color: #8b949e;
+    margin-top: 12px;
+}
 
