@@ -18,12 +18,12 @@ function escribirConsola() {
         if (caracterActual < lineasConsola[lineaActual].length) {
             outputElement.innerHTML += lineasConsola[lineaActual].charAt(caracterActual);
             caracterActual++;
-            setTimeout(escribirConsola, 30); // Velocidad de tipeo (ms)
+            setTimeout(escribirConsola, 55); // Velocidad más pausada por letra
         } else {
             outputElement.innerHTML += "<br>";
             lineaActual++;
             caracterActual = 0;
-            setTimeout(escribirConsola, 300); // Pausa entre líneas
+            setTimeout(escribirConsola, 600); // Pausa más larga entre líneas
         }
     } else {
         // Cuando termina de escribir todo, muestra las tarjetas principales
@@ -54,9 +54,9 @@ function actualizarReloj() {
 setInterval(actualizarReloj, 1000);
 actualizarReloj();
 
-// 3. EVENTOS DE BOTONES (Equivalente a manejar interrupciones/inputs)
+// 3. EVENTOS DE BOTONES
 document.getElementById("btn-reveal").addEventListener("click", function() {
-    this.style.display = "none"; // Oculta el botón tras presionarlo
+    this.style.display = "none";
     const finalStage = document.getElementById("final-stage");
     finalStage.classList.remove("hidden");
     finalStage.scrollIntoView({ behavior: "smooth" });
@@ -77,4 +77,5 @@ function bloquearBotonNo() {
 
 btnNo.addEventListener("click", bloquearBotonNo);
 btnNo.addEventListener("mouseover", bloquearBotonNo);
-});
+
+
