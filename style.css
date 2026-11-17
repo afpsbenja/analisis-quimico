@@ -225,7 +225,7 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .fade-in {
