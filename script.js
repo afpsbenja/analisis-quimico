@@ -1,4 +1,3 @@
-// ⚡ MODO PRUEBA: Ponlo en 'true' para probar rápido, y en 'false' para el 24 de noviembre
 const MODO_PRUEBA = false; 
 
 const velocidadTipeo = MODO_PRUEBA ? 1 : 55;
@@ -8,9 +7,9 @@ const esperaBoton = MODO_PRUEBA ? 200 : 7000;
 
 const lineasConsola = [
     "> Iniciando protocolo de análisis molecular...",
-    "> Cargando historial desde: 10 de Mayo [OK]",
+    "> Cargando historial desde: 10 de Mayo",
     "> Evaluando compatibilidad Quimica + Informatica ... 100%",
-    "> Calculando punto medio entre 14/10 y 04/01...",
+    "> Calculando punto medio entre 14 de Octubre y 4 de Enero...",
     "> RESULTADO ENCONTRADO: 24 DE NOVIEMBRE."
 ];
 
@@ -53,8 +52,7 @@ function escribirConsola() {
     }
 }
 
-// Arranca al instante sin esperar recursos externos
-document.addEventListener("DOMContentLoaded", escribirConsola);
+window.onload = escribirConsola;
 
 const fechaConocidos = new Date(2026, 4, 10, 0, 0, 0);
 
@@ -79,61 +77,44 @@ document.getElementById("btn-reveal").addEventListener("click", function() {
     const finalStage = document.getElementById("final-stage");
     finalStage.classList.remove("hidden");
     finalStage.scrollIntoView({ behavior: "smooth" });
+
+    const tiempoEsperaPregunta = MODO_PRUEBA ? 1000 : 15000;
+
+    setTimeout(() => {
+        const proposalSection = document.getElementById("proposal-section");
+        if (proposalSection) {
+            proposalSection.classList.remove("hidden");
+            proposalSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+    }, tiempoEsperaPregunta);
 });
 
-// SOLO EL BOTÓN "SÍ" ABRE EL POP-UP Y DISPARA EL CONFETI NATIVO
 document.getElementById("btn-yes").addEventListener("click", function(e) {
     e.stopPropagation();
     document.getElementById("response-msg").classList.remove("hidden");
-    this.innerText = "¡ENLACE CONFIRMADO! 💍";
+    this.innerText = "¡ENLACE CONFIRMADO!";
     document.getElementById("celebration-modal").classList.remove("hidden");
-    
-    lanzarConfetiNativo();
+
+    if (typeof confetti === "function") {
+        confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#ff66b2', '#00bcff', '#ffffff'],
+            zIndex: 10000
+        });
+    }
 });
 
-// BOTÓN PARA CERRAR EL POP-UP Y VOLVER A VER LA PÁGINA
 document.getElementById("close-modal").addEventListener("click", function(e) {
     e.stopPropagation();
     document.getElementById("celebration-modal").classList.add("hidden");
 });
 
-// EL BOTÓN "NO" SOLO SE PONE GRIS Y CAMBIA EL TEXTO
 const btnNo = document.getElementById("btn-no");
-
 btnNo.addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
     this.classList.add("disabled-btn");
     this.innerText = "Excepción no controlada: Solo puedes decir SÍ";
 });
-
-// FUNCIÓN PROPIA DE CONFETI (CERO DEPENDENCIAS EXTERNAS)
-function lanzarConfetiNativo() {
-    const colores = ['#ff66b2', '#00bcff', '#ffffff', '#3fb950'];
-    for (let i = 0; i < 80; i++) {
-        const particula = document.createElement('div');
-        particula.style.position = 'fixed';
-        particula.style.width = '8px';
-        particula.style.height = '8px';
-        particula.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
-        particula.style.left = Math.random() * 100 + 'vw';
-        particula.style.top = '-10px';
-        particula.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-        particula.style.zIndex = '10000';
-        particula.style.pointerEvents = 'none';
-        document.body.appendChild(particula);
-
-        const duracion = Math.random() * 2 + 1.5;
-        const desplazamientoX = (Math.random() - 0.5) * 150;
-
-        particula.animate([
-            { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
-            { transform: `translate(${desplazamientoX}px, 100vh) rotate(${Math.random() * 720}deg)`, opacity: 0 }
-        ], {
-            duration: duracion * 1000,
-            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-        });
-
-        setTimeout(() => particula.remove(), duracion * 1000);
-    }
-}
